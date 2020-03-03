@@ -20,9 +20,9 @@ app.use(static(
 // 配置存储session信息的mysql
 let store = new MysqlSession({
     user: 'root',
-    password: 'Ectriptestdb2018',
-    database: 'bolo',
-    host: '220.231.216.128',
+    password: '123456',
+    database: 'test2',
+    host: '127.0.0.1',
 })
 
 // 存放sessionId的cookie配置

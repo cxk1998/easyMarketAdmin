@@ -4,11 +4,11 @@ const config = {
     port: 8888,
 
     database: {
-        DATABASE: 'bolo',
+        DATABASE: 'test2',
         USERNAME: 'root',
-        PASSWORD: 'Ectriptestdb2018',
+        PASSWORD: '123456',
         PORT: '3306',
-        HOST: '220.231.216.128'
+        HOST: '127.0.0.1'
     }
 }
 
