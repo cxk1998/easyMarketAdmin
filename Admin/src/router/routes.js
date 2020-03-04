@@ -19,33 +19,33 @@ const frameIn = [
         component: () => import('@/pages/index')
       },
       {
-        path: '/goodsSearch',
-        name: 'goodsSearch',
-        component: () => import('@/pages/goods/goodsSearch'),
+        path: '/modelFiles',
+        name: 'modelFiles',
+        component: () => import('@/pages/files/modelFiles'),
         meta: { meta, title: '模型管理' }
       },
       {
-        path: '/goodsSearch',
-        name: 'goodsSearch',
-        component: () => import('@/pages/goods/goodsSearch'),
+        path: '/datasetFiles',
+        name: 'datasetFiles',
+        component: () => import('@/pages/files/datasetFiles'),
         meta: { meta, title: '数据集管理' }
       },
       {
-        path: '/goodsSearch',
-        name: 'goodsSearch',
-        component: () => import('@/pages/goods/goodsSearch'),
+        path: '/submitTask',
+        name: 'submitTask',
+        component: () => import('@/pages/submit/submitTask'),
         meta: { meta, title: '提交任务' }
       },
       {
-        path: '/goodsCategory',
-        name: 'goodsCategory',
-        component: () => import('@/pages/goods/goodsCategory'),
+        path: '/trainTask',
+        name: 'trainTask',
+        component: () => import('@/pages/tasks/trainTask'),
         meta: { meta, title: '训练任务' }
       },
       {
-        path: '/marketHome',
-        name: 'marketHome',
-        component: () => import('@/pages/market/marketHome'),
+        path: '/evaluteTask',
+        name: 'evaluteTask',
+        component: () => import('@/pages/tasks/evaluteTask'),
         meta: { meta, title: '推导任务' }
       }
     ]
