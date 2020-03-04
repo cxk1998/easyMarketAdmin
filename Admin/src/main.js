@@ -16,7 +16,6 @@ import './assets/sass/index.scss'
 import utils from './plugin/utils'
 
 import VueI18n from 'vue-i18n'
-Vue.use(VueI18n)
 import en from './lang/en'
 import ch from './lang/ch'
 
@@ -25,6 +24,7 @@ import router from './router'
 import menuHeader from '@/menu/header'
 import menuAside from '@/menu/aside'
 import { frameInRoutes } from '@/router/routes'
+Vue.use(VueI18n)
 
 Vue.use(ElementUI)
 
@@ -35,14 +35,14 @@ Vue.prototype.$env = process.env.NODE_ENV
 Vue.prototype.$baseUrl = process.env.BASE_URL
 
 const i18n = new VueI18n({
-    locale: 'en',
-    messages:{
-        'en': en,
-        'ch': ch,
-    }
+  locale: 'en',
+  messages: {
+    'en': en,
+    'ch': ch
+  }
 })
 
-const vue =  new Vue({
+const vue = new Vue({
   router,
   store,
   i18n,
@@ -54,8 +54,8 @@ const vue =  new Vue({
     this.$store.commit('d2adminMenuHeaderSet', menuHeader)
     // 异步加载设置侧边栏菜单
     setTimeout(() => {
-        this.$store.commit('d2adminMenuAsideSet', menuAside)
-    },30)
+      this.$store.commit('d2adminMenuAsideSet', menuAside)
+    }, 30)
   },
   mounted () {
     // 获取并记录用户 UA

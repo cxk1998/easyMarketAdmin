@@ -1,19 +1,22 @@
 // 菜单 侧边栏
 export default [
-  { path: '/index', title: '平台概况', icon: 'home' },
+  { path: '/index', title: '首页', icon: 'home' },
   {
-    title: '商品管理',
-    icon: 'shopping-bag',
+    title: '文件管理',
+    icon: 'file',
     children: [
-        { path: '/goodsSearch', title: '商品查询' ,icon: 'search' },
-        { path: '/goodsCategory', title: '商品分类' ,icon: 'codiepie' }
+        { path: '/goodsSearch', title: '数据集管理' ,icon: 'list' },
+        { path: '/goodsCategory', title: '模型管理' ,icon: 'codiepie' }
     ]
   },
+  { path: '/marketHome', title: '提交任务' ,icon: 'edit' },
   {
-    title: 'C端商城管理',
-    icon: 'caret-square-o-up',
+    title: '任务管理',
+    icon: 'calendar',
     children: [
-        { path: '/marketHome', title: '商城首页' ,icon: 'h-square' },
+        { path: '/marketHome', title: '训练任务' ,icon: 'h-square' },
+        { path: '/marketHome', title: '推导任务' ,icon: 'plus' },
     ]
   }
+  
 ]

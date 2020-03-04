@@ -15,26 +15,38 @@ const frameIn = [
       {
         path: 'index',
         name: 'index',
-        meta: { meta, title: '平台概况' },
+        meta: { meta, title: '首页' },
         component: () => import('@/pages/index')
       },
       {
         path: '/goodsSearch',
         name: 'goodsSearch',
         component: () => import('@/pages/goods/goodsSearch'),
-        meta: { meta, title: '商品查询' }
+        meta: { meta, title: '模型管理' }
+      },
+      {
+        path: '/goodsSearch',
+        name: 'goodsSearch',
+        component: () => import('@/pages/goods/goodsSearch'),
+        meta: { meta, title: '数据集管理' }
+      },
+      {
+        path: '/goodsSearch',
+        name: 'goodsSearch',
+        component: () => import('@/pages/goods/goodsSearch'),
+        meta: { meta, title: '提交任务' }
       },
       {
         path: '/goodsCategory',
         name: 'goodsCategory',
         component: () => import('@/pages/goods/goodsCategory'),
-        meta: { meta, title: '商品分类' }
+        meta: { meta, title: '训练任务' }
       },
       {
         path: '/marketHome',
         name: 'marketHome',
         component: () => import('@/pages/market/marketHome'),
-        meta: { meta, title: '任务管理' }
+        meta: { meta, title: '推导任务' }
       }
     ]
   }
