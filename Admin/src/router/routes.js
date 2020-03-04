@@ -25,17 +25,17 @@ const frameIn = [
         meta: { meta, title: '商品查询' }
       },
       {
-          path: '/goodsCategory',
-          name: 'goodsCategory',
-          component: () => import('@/pages/goods/goodsCategory'),
-          meta: { meta, title: '商品分类' }
+        path: '/goodsCategory',
+        name: 'goodsCategory',
+        component: () => import('@/pages/goods/goodsCategory'),
+        meta: { meta, title: '商品分类' }
       },
-        {
-            path: '/marketHome',
-            name: 'marketHome',
-            component: () => import('@/pages/market/marketHome'),
-            meta: { meta, title: '商城首页' }
-        }
+      {
+        path: '/marketHome',
+        name: 'marketHome',
+        component: () => import('@/pages/market/marketHome'),
+        meta: { meta, title: '任务管理' }
+      }
     ]
   }
 ]

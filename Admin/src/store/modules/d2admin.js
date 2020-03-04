@@ -73,31 +73,31 @@ export default {
      */
     async d2adminLogin ({ state, commit, rootState }, { vm, username, password }) {
       // 开始请求登录接口
-        const res = await vm.$http.postLogin({
-            user:username,
-            pwd:password
-        })
-        if(res.code == 'noLogin'){
-            alert(res.message)
-            return
-        }
-        console.log(res)
-        // 设置 cookie 一定要存 uuid 和 token 两个 cookie
-        // 整个系统依赖这两个数据进行校验和存储
-        // uuid 是用户身份唯一标识 用户注册的时候确定 并且不可改变 不可重复
-        // token 代表用户当前登录状态 建议在网络请求中携带 token，如有必要 token 需要定时更新，默认保存一天
-        util.cookies.set('uuid', res.data.uuid)
-        util.cookies.set('token', res.data.token)
-        // 设置 vuex 用户信息
-        commit('d2adminUserInfoSet', {
-            name: res.data.name
-        })
-        // 用户登陆后从数据库加载一系列的设置
-        commit('d2adminLoginSuccessLoad')
-        // 跳转路由
-        vm.$router.push({
-            name: 'index'
-        })
+      const res = await vm.$http.postLogin({
+        user: username,
+        pwd: password
+      })
+      if (res.code === 'noLogin') {
+        alert(res.message)
+        return
+      }
+      console.log(res)
+      // 设置 cookie 一定要存 uuid 和 token 两个 cookie
+      // 整个系统依赖这两个数据进行校验和存储
+      // uuid 是用户身份唯一标识 用户注册的时候确定 并且不可改变 不可重复
+      // token 代表用户当前登录状态 建议在网络请求中携带 token，如有必要 token 需要定时更新，默认保存一天
+      util.cookies.set('uuid', res.data.uuid)
+      util.cookies.set('token', res.data.token)
+      // 设置 vuex 用户信息
+      commit('d2adminUserInfoSet', {
+        name: res.data.name
+      })
+      // 用户登陆后从数据库加载一系列的设置
+      commit('d2adminLoginSuccessLoad')
+      // 跳转路由
+      vm.$router.push({
+        name: 'index'
+      })
     },
     /**
      * 注销用户并返回登陆页面
@@ -146,9 +146,9 @@ export default {
      * @param {String} key key name
      */
     d2adminUtilVuex2DbByUuid (state, key) {
-        const row = db.get(key).find({uuid: util.cookies.get('uuid')})
+      const row = db.get(key).find({ uuid: util.cookies.get('uuid') })
       if (row.value()) {
-        row.assign({value: state[key]}).write()
+        row.assign({ value: state[key] }).write()
       } else {
         db.get(key).push({
           uuid: util.cookies.get('uuid'),
@@ -163,7 +163,7 @@ export default {
      * @param {Object} param1 key and default value
      */
     d2adminUtilDb2VuexByUuid (state, { key, defaultValue }) {
-      const row = db.get(key).find({uuid: util.cookies.get('uuid')}).value()
+      const row = db.get(key).find({ uuid: util.cookies.get('uuid') }).value()
       state[key] = row ? row.value : defaultValue
     },
     /**
@@ -173,9 +173,9 @@ export default {
      * @param {String} key key name
      */
     d2adminUtilVuex2Db (state, key) {
-      const row = db.get(key).find({pub: 'pub'})
+      const row = db.get(key).find({ pub: 'pub' })
       if (row.value()) {
-        row.assign({value: state[key]}).write()
+        row.assign({ value: state[key] }).write()
       } else {
         db.get(key).push({
           pub: 'pub',
@@ -190,7 +190,7 @@ export default {
      * @param {Object} param1 key and default value
      */
     d2adminUtilDb2Vuex (state, { key, defaultValue }) {
-      const row = db.get(key).find({pub: 'pub'}).value()
+      const row = db.get(key).find({ pub: 'pub' }).value()
       state[key] = row ? row.value : defaultValue
     },
     /**
