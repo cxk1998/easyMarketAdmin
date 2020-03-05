@@ -6,16 +6,13 @@
 
         <el-form :inline="true"  class="demo-form-inline">
             <el-form-item label="名称">
-                <el-input v-model="searchForm.name" placeholder="分类名称"></el-input>
-            </el-form-item>
-            <el-form-item label="标识">
-                <el-input v-model="searchForm.code" placeholder="分类标识"></el-input>
+                <el-input v-model="searchForm.name" placeholder="任务名称"></el-input>
             </el-form-item>
             <el-form-item label="状态">
                 <el-select v-model="searchForm.status">
-                    <el-option label="全部" value="0"></el-option>
-                    <el-option label="有效" value="1"></el-option>
-                    <el-option label="禁用" value="-1"></el-option>
+                    <el-option label="进行中" value="0"></el-option>
+                    <el-option label="成功" value="1"></el-option>
+                    <el-option label="失败" value="-1"></el-option>
                 </el-select>
             </el-form-item>
             <el-form-item label="">
@@ -24,26 +21,20 @@
         </el-form>
 
         <el-table :data="dataList" size="small" border style="width: 100%">
-            <el-table-column prop="name" label="分类名称"></el-table-column>
-            <el-table-column prop="code" label="分类标识"></el-table-column>
+            <el-table-column prop="name" label="名称"></el-table-column>
             <el-table-column label="创建时间">
                 <template scope="scope">
                     {{$utils.formateDate(scope.row.createTime,1)}}
                 </template>
             </el-table-column>
-            <el-table-column  label="更新时间">
-                <template scope="scope">
-                    {{$utils.formateDate(scope.row.updateTime,1)}}
-                </template>
-            </el-table-column>
             <el-table-column prop="status" label="状态">
                 <template scope="scope">
-                    {{scope.row.status>0?'有效':'禁用'}}
+                    {{scope.row.status>0?'成功':'失败'}}
                 </template>
             </el-table-column>
             <el-table-column label="操作" width="100px">
                 <template scope="scope">
-                    <el-button type="text" size="small" @click="change(scope.row)">修改</el-button>
+                    <el-button type="text" size="small" @click="change(scope.row)">删除</el-button>
                 </template>
             </el-table-column>
         </el-table>
